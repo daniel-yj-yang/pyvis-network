@@ -1,3 +1,6 @@
+
+next: plan to leverage the positions of the nodes, and the cluster options more in vis.js
+
 2021-11-30
 ----------
 ver 0.0.1: initial commit

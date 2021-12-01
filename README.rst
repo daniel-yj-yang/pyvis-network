@@ -22,7 +22,7 @@
 Interactive Network Visualizations
 ===================================
 
-This tool leverages the amazing vis-network library (https://visjs.org/) to provide interactive visualizations.
+This tool leverages the amazing vis-network library (https://visjs.github.io/vis-network/docs/network/) to provide interactive visualizations.
 
 
 Installation
