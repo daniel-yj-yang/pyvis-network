@@ -36,4 +36,17 @@ Installation
 Sample Usage
 ------------
 
-Coming up soon!
+>>> from pyvis_network import network, dataset
+>>> nodes_df, edges_df = dataset().load_as_df("Example1")
+>>> network(title="Example1").add_df(nodes_df=nodes_df,edges_df=edges_df).show("output.html")
+
+
+Sample Screenshot
+-----------------
+Example1
+
+|image1|
+
+
+.. |image1| image:: https://github.com/daniel-yj-yang/pyvis-network/raw/main/pyvis_network/examples/images/Example1.png
+

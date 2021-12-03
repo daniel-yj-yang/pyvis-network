@@ -4,7 +4,7 @@
 #
 # License: BSD-3-Clause
 
- 
-__version__ = "0.0.2"
+from ._network import network
 
-__license__ = "BSD-3-Clause License"
+# this is for "from <package_name>.game import *"
+__all__ = ["network",]
