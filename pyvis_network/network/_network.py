@@ -5,11 +5,10 @@
 # License: BSD-3-Clause
 
 
-from typing import Union
+from typing import Union, List
 from pathlib import Path
 import pandas as pd
 import webbrowser
-import sys
 
 
 class network(object):
@@ -18,12 +17,21 @@ class network(object):
       self.title = title
       self.width = width
       self.height = height
-      self.nodes_df = pd.DataFrame(columns=['label'])
-      self.edges_df = pd.DataFrame(columns=['from','to'])
+      self.nodes_hashmap = dict()
+
+    def add_node(self, node_id: Union[float, int, str] = None, shape: str = 'circle'):
+      if node_id not in self.nodes_hashmap:
+        self.nodes_hashmap[node_id] = {'shape': shape, 'to': dict()}
+
+    def add_edge(self, from_node_id: Union[float, int, str] = None, to_node_id: Union[float, int, str] = None):
+      if to_node_id not in self.nodes_hashmap[from_node_id]['to']:
+        self.nodes_hashmap[from_node_id]['to'][to_node_id] = {'weight': 1.0,}
 
     def add_df(self, nodes_df: pd.DataFrame, edges_df: pd.DataFrame) -> None:
-      self.nodes_df = nodes_df.copy()
-      self.edges_df = edges_df.copy()
+      for idx, row in nodes_df.iterrows():
+        self.add_node(node_id = row['label'])
+      for idx, row in edges_df.iterrows():
+        self.add_edge(from_node_id=row['from'], to_node_id=row['to'])
       return self
 
     def _generate_html(self) -> None:
@@ -53,20 +61,21 @@ class network(object):
   // create an array with nodes
   var nodes = new vis.DataSet(["""
       label_to_id_hashmap = {}
-      for idx, row in self.nodes_df.iterrows():
-        label_to_id_hashmap[row['label']] = idx+1
+      for idx, node_id in enumerate(self.nodes_hashmap):
+        label_to_id_hashmap[node_id] = idx+1
         id_part = f"id: {idx+1}, "
-        label_part = f"label: \"{row['label']}\""
+        label_part = f"label: \"{node_id}\""
         self.html += f"""
     {{ {id_part}{label_part} }},"""
       self.html += f"""
   ]);
   // create an array with edges
   var edges = new vis.DataSet(["""
-      for idx, row in self.edges_df.iterrows():
-        from_part = f"from: {label_to_id_hashmap[row['from']]}, "
-        to_part = f"to: {label_to_id_hashmap[row['to']]}"
-        self.html += f"""
+      for from_node_id in self.nodes_hashmap:
+        from_part = f"from: {label_to_id_hashmap[from_node_id]}, "
+        for to_node_id in self.nodes_hashmap[from_node_id]['to']:
+          to_part = f"to: {label_to_id_hashmap[to_node_id]}"
+          self.html += f"""
     {{ {from_part}{to_part} }},"""
       self.html += f"""
   ]);

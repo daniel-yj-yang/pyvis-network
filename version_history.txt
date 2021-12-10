@@ -1,6 +1,12 @@
 
 next: plan to leverage the positions of the nodes, and the cluster options more in vis.js
 
+
+2021-12-09
+----------
+ver 0.0.3: dict() implementation for the internal data structure of the nodes
+
+
 2021-12-03
 ----------
 ver 0.0.2: initial commit
