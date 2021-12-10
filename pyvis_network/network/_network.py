@@ -23,9 +23,9 @@ class network(object):
       if node_id not in self.nodes_hashmap:
         self.nodes_hashmap[node_id] = {'shape': shape, 'to': dict()}
 
-    def add_edge(self, from_node_id: Union[float, int, str] = None, to_node_id: Union[float, int, str] = None):
+    def add_edge(self, from_node_id: Union[float, int, str] = None, to_node_id: Union[float, int, str] = None, weight: float = 1.0):
       if to_node_id not in self.nodes_hashmap[from_node_id]['to']:
-        self.nodes_hashmap[from_node_id]['to'][to_node_id] = {'weight': 1.0,}
+        self.nodes_hashmap[from_node_id]['to'][to_node_id] = {'weight': weight,}
 
     def add_df(self, nodes_df: pd.DataFrame, edges_df: pd.DataFrame) -> None:
       for idx, row in nodes_df.iterrows():
