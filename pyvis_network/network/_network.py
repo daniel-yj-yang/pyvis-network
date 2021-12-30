@@ -24,7 +24,7 @@ class Node(dict):
     super().__init__(*args, **kwargs)
     self['label'] = label
     self['shape'] = shape
-    self['edges'] = dict() # key: to_Node['label'], value: Edge
+    self['edges'] = dict() # key: label, value: Edge
   
   def add_edge(self, to_node: 'Node' = None):
     if to_node['label'] not in self['edges']:
