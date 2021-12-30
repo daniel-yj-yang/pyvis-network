@@ -1,4 +1,4 @@
-from,to
+source,to
 Supervised\nlearning,Linear\nregression
 Supervised\nlearning,Logistic\nregression
 Unsupervised\nlearning,Cluster\nanalysis

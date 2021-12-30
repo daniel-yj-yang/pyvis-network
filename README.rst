@@ -38,7 +38,9 @@ Sample Usage
 
 >>> from pyvis_network import network, dataset
 >>> nodes_df, edges_df = dataset().load_as_df("Example1")
->>> network(title="Example1").add_df(nodes_df=nodes_df,edges_df=edges_df).show("example1.html")
+>>> graph1 = network(title="Example1").add_df(nodes_df=nodes_df,edges_df=edges_df)
+>>> graph2 = graph1.clone_graph()
+>>> graph2.show("example1.html")
 
 >>> from pyvis_network import network, dataset
 >>> nodes_df, edges_df = dataset().load_as_df("Machine_Learning")
