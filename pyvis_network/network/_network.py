@@ -25,7 +25,7 @@ class Node(dict):
     self['node_id'] = node_id
     self['label'] = label
     self['shape'] = shape
-    self['edges'] = dict() # key: to_node_id, value: Edge
+    self['edges'] = dict() # key: to_node_id, value: Edge object
   
   def add_edge(self, to_node: 'Node' = None):
     if to_node['node_id'] not in self['edges']:
