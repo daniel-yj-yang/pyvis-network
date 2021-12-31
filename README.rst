@@ -62,5 +62,5 @@ Example1
 Other Similar Tools
 -------------------
 
-https://pyvis.readthedocs.io/en/latest/
-https://pyviz.org/
+* https://pyvis.readthedocs.io/en/latest/
+* https://pyviz.org/
