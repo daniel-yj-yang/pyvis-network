@@ -57,3 +57,9 @@ Example1
 
 .. |image1| image:: https://github.com/daniel-yj-yang/pyvis-network/raw/main/pyvis_network/examples/images/Example1.png
 
+
+
+Other Similar Tools
+-------------------
+https://pyvis.readthedocs.io/en/latest/
+https://pyviz.org/
