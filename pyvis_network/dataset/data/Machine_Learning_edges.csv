@@ -1,4 +1,4 @@
-source,to
+source_node_id,to_node_id
 Supervised\nlearning,Linear\nregression
 Supervised\nlearning,Logistic\nregression
 Unsupervised\nlearning,Cluster\nanalysis

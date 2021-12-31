@@ -1,4 +1,4 @@
-source,to
+source_node_id,to_node_id
 Node 1,Node 3
 Node 1,Node 2
 Node 2,Node 4

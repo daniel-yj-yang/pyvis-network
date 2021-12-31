@@ -3,7 +3,7 @@ next: plan to leverage the positions of the nodes, and the cluster options more 
 
 2021-12-30
 ----------
-ver 0.0.4: add two classes Edge() and Node(), and add a function to the network() class
+ver 0.0.5: add two classes Edge() and Node(), and add a function to the network() class
 
 clone_graph()
 
