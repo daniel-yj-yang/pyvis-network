@@ -42,6 +42,8 @@ class network(object):
 
     def add_node(self, node_id: Union[float, int, str] = None, label: str = ''):
       if node_id not in self.nodes:
+        if label == '':
+          label = node_id
         self.nodes[node_id] = Node(node_id = node_id, label = label)
 
     def add_edge(self, source_node_id: Union[float, int, str] = None, to_node_id: Union[float, int, str] = None):
